@@ -2,7 +2,7 @@
 
 #java -jar mc_pi.jar
 
-iteration=500
+iteration=50
 echo "Teste" ${iteration} "mal"
 for((i=1;i<=iteration;i++))
 do

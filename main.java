@@ -21,7 +21,7 @@ public class main
     Text ratio_display;
     Text pi_display;
     
-    int versuche = 10000;
+    int versuche = 50000;
     volatile double punkt_anzahl = 0;
     volatile double treffer_zahl = 0;
     /**
@@ -79,11 +79,19 @@ public class main
     public void random_dot()
     {
         //punkt.clone();
-        punkt.moveTo((int)(Math.random() * 600 +1 ),(int)(Math.random() * 600 +1));
+        punkt.moveTo((int)(Math.random() * (601-1)),((int)(Math.random() * (601-1))));
+        //punkt.moveTo(599,300);
+        
         if (punkt.intersects(kreis) == true)
         {
             treffer_zahl++;
         }
+        
+        /*if ()
+        {
+            treffer_zahl++;
+        }
+        */
     }
         public static void main(String[] args)
     {
