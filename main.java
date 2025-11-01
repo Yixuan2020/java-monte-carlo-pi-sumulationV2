@@ -80,9 +80,10 @@ public class main
     {
         //punkt.clone();
         punkt.moveTo((int)(Math.random() * (601-1)),((int)(Math.random() * (601-1))));
-        //punkt.moveTo(599,300);
-        
-        if (punkt.intersects(kreis) == true)
+        //punkt.moveTo(-1,300);
+        double x = punkt.getShapeX();
+        double y = punkt.getShapeY();
+        if ((x-300)*(x-300) + (y-300)*(y-300) <= 300*300)
         {
             treffer_zahl++;
         }
