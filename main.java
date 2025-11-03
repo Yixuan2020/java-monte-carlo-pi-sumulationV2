@@ -7,6 +7,7 @@
  */
 import sas.*;
 import java.awt.Color;
+import java.util.SplittableRandom;
 
 public class main
 {
@@ -21,15 +22,17 @@ public class main
     Text ratio_display;
     Text pi_display;
     
-    int versuche = 50000;
+    int versuche = 5000;
     volatile double punkt_anzahl = 0;
     volatile double treffer_zahl = 0;
+    SplittableRandom splittR = new SplittableRandom();
     /**
      * Constructor for objects of class main
      */
     public main()
     {
-        // initialise instance variables
+        
+        
         fenster = new View(900,600);
         quadrat = new Rectangle(0,0,600,600,Color.GRAY);
         kreis = new Circle(0, 0, 300,Color.WHITE);
@@ -79,15 +82,20 @@ public class main
     public void random_dot()
     {
         //punkt.clone();
-        punkt.moveTo((int)(Math.random() * (601-1)),((int)(Math.random() * (601-1))));
-        //punkt.moveTo(-1,300);
+        punkt.moveTo(splittR.nextDouble((601-1)),splittR.nextDouble((601-1)));
+        //punkt.moveTo(600,300);
         double x = punkt.getShapeX();
         double y = punkt.getShapeY();
         if ((x-300)*(x-300) + (y-300)*(y-300) <= 300*300)
         {
             treffer_zahl++;
+            //punkt.setColor(Color.GREEN);
         }
-        
+        /*else
+        {
+            punkt.setColor(Color.RED);
+        }
+        */
         /*if ()
         {
             treffer_zahl++;
